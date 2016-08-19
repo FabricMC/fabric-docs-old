@@ -1,0 +1,46 @@
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            if (project.hasProperty('mavenPass')) {
+                repository(url: 'http://mavenupload.modmuss50.me/') {
+                    authentication(userName: 'buildslave', password: project.getProperty('mavenPass'))
+                }
+            } else {
+               repository(url: 'file:///var/www/maven/')
+            }
+
+            pom {
+                artifactId = project.archivesBaseName
+
+                project {
+                    name = project.name
+                    description = project.description
+                    packaging = 'jar'
+                    url = project.url
+
+                    scm {
+                        url = project.url
+                        connection = project.git
+                        developerConnection = project.git
+                    }
+
+                    issueManagement {
+                        system = 'GitHub'
+                        url = project.url
+                    }
+
+                    licenses {
+                        license {
+                            name = project.license
+                            url = project.licenseURL
+                            distribution = 'repo'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
