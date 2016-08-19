@@ -17,28 +17,7 @@ uploadArchives {
 
                 project {
                     name = project.name
-                    description = project.description
                     packaging = 'jar'
-                    url = project.url
-
-                    scm {
-                        url = project.url
-                        connection = project.git
-                        developerConnection = project.git
-                    }
-
-                    issueManagement {
-                        system = 'GitHub'
-                        url = project.url
-                    }
-
-                    licenses {
-                        license {
-                            name = project.license
-                            url = project.licenseURL
-                            distribution = 'repo'
-                        }
-                    }
                 }
             }
         }
