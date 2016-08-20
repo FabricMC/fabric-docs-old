@@ -1,0 +1,18 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+		classpath "gradle.plugin.net.minecrell:licenser:0.2.1"
+    }
+}
+
+//Due to a gradle bug, the full class name needs to be used
+apply plugin: net.minecrell.gradle.licenser.Licenser
+
+license {
+    header file('HEADER')
+    include '**/*.java'
+}
