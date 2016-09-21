@@ -1,1 +1,31 @@
+configurations {
+    deployerJars
+}
 
+dependencies {
+    deployerJars "org.apache.maven.wagon:wagon-ssh:2.10"
+}
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            configuration = configurations.deployerJars
+            repository(url: 'sftp://lambda.infra.surgeplay.com:18840/maven') {
+                authentication(
+                    userName: 'asie'
+                )
+            }
+
+            pom {
+                artifactId = project.archivesBaseName
+
+                project {
+                    name = project.name
+                    packaging = 'jar'
+                }
+            }
+        }
+    }
+}
