@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <inspections version="1.0">
-  <description>Inspecttion settings for the Fabric project</description>
+  <description>Inspection settings for the Fabric project</description>
   <option name="myName" value="FabricInspect" />
   <inspection_tool class="AbstractMethodOverridesAbstractMethod" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="ignoreJavaDoc" value="true" />
