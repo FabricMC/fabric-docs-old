@@ -3,6 +3,7 @@
 # directories
 !/guidelines
 !/gradle
+!/misc
 
 # files
 !/.gitignore
