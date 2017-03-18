@@ -1,11 +1,21 @@
+configurations {
+    deployerJars
+}
+
+dependencies {
+    deployerJars "org.apache.maven.wagon:wagon-ssh:2.10"
+}
+
 apply plugin: 'maven'
-apply plugin: 'maven-publish'
 
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "http://mavenupload.modmuss50.me/") {
-                authentication(userName: "buildslave", password: project.getProperty('mavenPass'))
+            configuration = configurations.deployerJars
+            repository(url: 'sftp://lambda.infra.surgeplay.com:18840/maven') {
+                authentication(
+                    userName: 'asie'
+                )
             }
 
             pom {
