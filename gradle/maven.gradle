@@ -13,7 +13,7 @@ uploadArchives {
         mavenDeployer {
             configuration = configurations.deployerJars
             repository(url: 'sftp://lambda.infra.surgeplay.com/maven/') {
-                authentication(userName: 'fabric', privateKey: '/home/Jenkins/PrivKey'))
+                authentication(userName: 'fabric', privateKey: '/home/Jenkins/PrivKey')
             }
 
             pom {
