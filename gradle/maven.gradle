@@ -15,7 +15,7 @@ uploadArchives {
             repository(url: 'sftp://lambda.infra.surgeplay.com/maven/') {
                 authentication(
                     userName: 'fabric',
-                    privateKey project.getProperty('fabricKey')
+                    privateKey: project.getProperty('fabricKey')
                 )
             }
 
